@@ -6,7 +6,7 @@
 /*   By: absaid <absaid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:26:03 by absaid            #+#    #+#             */
-/*   Updated: 2022/10/19 12:18:43 by absaid           ###   ########.fr       */
+/*   Updated: 2022/10/21 18:21:59 by absaid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		return (dst);
 	i = -1;
 	while (++i < n)
-		*(unsigned char *)(dst + i) = *(unsigned char *)(src + i);
+		*(char *)(dst + i) = *(char *)(src + i);
 	return (dst);
 }
