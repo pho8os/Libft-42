@@ -6,38 +6,28 @@
 /*   By: absaid <absaid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:27:04 by absaid            #+#    #+#             */
-/*   Updated: 2022/10/19 21:28:10 by absaid           ###   ########.fr       */
+/*   Updated: 2022/10/21 22:59:27 by absaid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	check(char *s, char c)
-{
-	int	i;
-
-	i = -1;
-	while (s[++i])
-		if (*(s + i) == c)
-			return (1);
-	return (0);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		j;
-	char	*s;
+	const char	*start;
+	const char	*end;
+	int			len;
 
 	if (!s1 || !set)
 		return (NULL);
-	i = 0;
-	while (s1[i] && check((char *)set, s1[i]))
-		i++;
-	j = i;
-	i = ft_strlen(s1) - 1;
-	while (i >= 0 && check((char *)set, s1[i]))
-		i--;
-	s = ft_substr(s1, j, i - j + 1);
-	return (s);
+	len = ft_strlen(s1);
+	start = s1;
+	end = s1 + len - 1;
+	while (*start && ft_strchr(set, *start))
+		start++;
+	if (start == s1 + len)
+		return (ft_strdup(""));
+	while (*end && ft_strchr(set, *end))
+		end--;
+	return (ft_substr(start, 0, end - start + 1));
 }
