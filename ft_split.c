@@ -6,7 +6,7 @@
 /*   By: absaid <absaid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:55:28 by absaid            #+#    #+#             */
-/*   Updated: 2022/10/21 13:56:59 by absaid           ###   ########.fr       */
+/*   Updated: 2022/10/22 15:47:27 by absaid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ static int	count_words(char *str, char c)
 	return (count);
 }
 
-static void	free_all(char **str)
+static void	free_all(char **str, int l)
 {
-	while (*str)
-		free(*str++);
+	while (l)
+	{
+		free(str[l]);
+		l--;
+	}
 	free(str);
 }
 
@@ -55,7 +58,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		p[l] = ft_substr(s, j, i - j);
 		if (!p[l])
-			return (free_all(p), NULL);
+			return (free_all(p, l), NULL);
 	}
 	return (p[l] = NULL, p);
 }
