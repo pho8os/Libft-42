@@ -6,7 +6,7 @@
 /*   By: absaid <absaid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:27:00 by absaid            #+#    #+#             */
-/*   Updated: 2022/10/19 13:37:11 by absaid           ###   ########.fr       */
+/*   Updated: 2022/10/23 12:04:44 by absaid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		while (haystack[i + j] == needle[j] && i + j < len)
 		{
 			if (!needle[j + 1])
-			{
 				return ((char *)(haystack + i));
-			}
 			j++;
 		}
 	}
